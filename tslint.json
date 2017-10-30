@@ -1,0 +1,6 @@
+{
+  "extends": "tslint-config-standard",
+  "globals": {
+    "require": true
+  }
+}
