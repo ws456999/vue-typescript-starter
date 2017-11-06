@@ -6,6 +6,8 @@
     "node_modules"
   ],
   "compilerOptions": {
+    "jsx": "preserve",
+    "jsxFactory": "h",
     "allowSyntheticDefaultImports": true,
     "experimentalDecorators": true,
     "allowJs": true,
@@ -16,6 +18,8 @@
     "lib": [
       "dom",
       "es5",
+      "es6",
+      "es7",
       "es2015.promise"
     ],
     "sourceMap": true,

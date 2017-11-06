@@ -20,7 +20,7 @@ module.exports = {
       : config.dev.assetsPublicPath
   },
   resolve: {
-    extensions: ['.js', '.vue', '.json', '.ts'],
+    extensions: ['.js', '.vue', '.json', '.ts', '.tsx'],
     alias: {
       '@': resolve('src'),
     }
@@ -37,23 +37,32 @@ module.exports = {
         }
       },
       {
-        test: /\.ts$/,
+        test: /\.tsx?$/,
         exclude: /node_modules/,
         enforce: 'pre',
         loader: 'tslint-loader'
       },
       {
-        test: /\.tsx?$/,
-        loader: 'ts-loader',
-        exclude: /node_modules/,
-        options: {
-          appendTsSuffixTo: [/\.vue$/],
-        }
-      },
-      {
         test: /\.vue$/,
         loader: 'vue-loader',
-        options: vueLoaderConfig
+        options: Object.assign(vueLoaderConfig, {
+          loaders: {
+            ts: "ts-loader",
+            tsx: "babel-loader!ts-loader"
+          }
+        })
+      },
+      {
+        test: /\.tsx?$/,
+        exclude: /node_modules/,
+        // loader: 'ts-loader',
+        use: [
+          "babel-loader",
+          {
+            loader: "ts-loader",
+            options: { appendTsxSuffixTo: [/\.vue$/] }
+          }
+        ]
       },
       {
         test: /\.js$/,
