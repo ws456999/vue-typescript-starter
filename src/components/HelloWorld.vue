@@ -25,6 +25,10 @@ export default class HelloWorld extends Vue {
   @Getter info
 
   msg: string = 'Welcome to Your Vue-Typescript App'
+
+  mounted () {
+    console.log('这是 _.assign({})', _.assign({}))
+  }
 }
 </script>
 
