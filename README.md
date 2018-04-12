@@ -7,6 +7,7 @@
 如果你按照文章没有配出来的话，可以参考这个项目的代码，进行比较
 
 ## 特性
+- webpack4
 - vue
 - vue-router
 - vuex
@@ -32,3 +33,9 @@ npm run dev
 npm run build
 
 ```
+
+## change log
+
+2018-04-12
+
+升级到webpack4
