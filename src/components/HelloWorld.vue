@@ -11,7 +11,7 @@
 <script lang="ts">
 import Vue from 'vue'
 import Component from 'vue-class-component'
-import RC from './renderComponent.vue'
+import RC from '@/components/renderComponent.vue'
 import TestMixin from '../mixins/test-mixin'
 import { Getter } from 'vuex-class'
 

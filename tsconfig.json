@@ -8,10 +8,7 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@": ["*"],
-      "*": ["*", "src/*"],
-      "components/*": ["src/components/*"],
-      "utils/*": ["src/utils/*"],
+      "@/*": ["*", "src/*"]
     },
     "jsx": "preserve",
     "jsxFactory": "h",
