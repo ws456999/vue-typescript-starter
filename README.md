@@ -38,8 +38,10 @@ npm run build
 
 *2018-06-30*
 
-upgrade dependencies && remove eslint
+- upgrade dependencies
+- remove eslint
+- add script lint
 
 *2018-04-12*
 
-upgrade webpack4
+- upgrade webpack4
