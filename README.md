@@ -13,7 +13,7 @@
 - vuex
 - typescript
 - jsx
-- eslint
+- ~~eslint~~
 - tslint
 - 单vue文件开发
 
@@ -36,6 +36,10 @@ npm run build
 
 ## change log
 
-2018-04-12
+*2018-06-30*
 
-升级到webpack4
+upgrade dependencies && remove eslint
+
+*2018-04-12*
+
+upgrade webpack4
