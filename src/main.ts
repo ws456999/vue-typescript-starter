@@ -5,8 +5,7 @@ import store from './store'
 
 Vue.config.productionTip = false
 
-/* eslint-disable no-new */
-const init = new Vue({
+export default new Vue({
   el: '#app',
   store,
   router,

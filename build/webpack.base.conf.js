@@ -4,6 +4,8 @@ const utils = require('./utils')
 const config = require('../config')
 const vueLoaderConfig = require('./vue-loader.conf')
 const webpack = require('webpack')
+const { VueLoaderPlugin } = require('vue-loader')
+// const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin')
 
 function resolve (dir) {
   return path.join(__dirname, '..', dir)
@@ -31,25 +33,32 @@ module.exports = {
   },
   module: {
     rules: [
-      {
-        test: /\.(js|vue)$/,
-        loader: 'eslint-loader',
-        enforce: 'pre',
-        include: [resolve('src'), resolve('test')],
-        options: {
-          formatter: require('eslint-friendly-formatter')
-        }
-      },
-      {
-        test: /\.tsx?$/,
-        exclude: /node_modules/,
-        enforce: 'pre',
-        loader: 'tslint-loader'
-      },
+      // {
+      //   test: /\.(js|vue)$/,
+      //   loader: 'eslint-loader',
+      //   enforce: 'pre',
+      //   include: [resolve('src'), resolve('test')],
+      //   options: {
+      //     formatter: require('eslint-friendly-formatter')
+      //   }
+      // },
+      // {
+      //   test: /\.tsx?$/,
+      //   exclude: /node_modules/,
+      //   enforce: 'pre',
+      //   use: [
+      //     {
+      //         loader: 'tslint-loader',
+      //         options: {
+      //             configFile: 'tslint.json'
+      //         }
+      //     }
+      //   ]
+      // },
       {
         test: /\.vue$/,
-        loader: 'vue-loader',
-        options: vueLoaderConfig
+        loader: 'vue-loader'
+        // options: vueLoaderConfig
       },
       {
         test: /\.tsx?$/,
@@ -60,6 +69,9 @@ module.exports = {
           {
             loader: "ts-loader",
             options: { appendTsxSuffixTo: [/\.vue$/] }
+          },
+          {
+            loader: 'tslint-loader'
           }
         ]
       },
@@ -95,6 +107,11 @@ module.exports = {
     ]
   },
   plugins: [
+    // new ForkTsCheckerWebpackPlugin({
+    //   tslint: true,
+    //   vue: true
+    // }),
+    new VueLoaderPlugin(),
     new webpack.ProvidePlugin({
       _: 'lodash'
     })

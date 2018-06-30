@@ -1,7 +1,7 @@
 import * as lodash from 'lodash'
+import Vue from 'vue'
 
-declare module "*.vue" {
-  import Vue from "vue"
+declare module '*.vue' {
   export default Vue
 }
 
