@@ -44,7 +44,7 @@ npm run build
 *2018-07-12*
 - support vue-cli
 
-`vue init ws456999/vue-typescript-starter#template projectName`
+> vue init ws456999/vue-typescript-starter#template `your project name`
 
 *2018-06-30*
 
