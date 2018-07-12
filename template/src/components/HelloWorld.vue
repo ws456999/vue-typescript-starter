@@ -1,9 +1,11 @@
 <template>
   <div class="hello">
-    <h1>{{ msg }}</h1>
+    <h1>\{{ msg }}</h1>
     <h2>vue-typescrip-starter</h2>
-    <p>mixin 数据 ：{{ testMixinArg }}</p>
-    <p>store 数据 ：{{ info.data }}</p>
+    <p>mixin 数据 ：\{{ testMixinArg }}</p>
+    {{#vuex}}
+    <p>store 数据 ：\{{ info.data }}</p>
+    {{/vuex}}
     <RC></RC>
   </div>
 </template>
@@ -13,7 +15,9 @@ import Vue from 'vue'
 import Component from 'vue-class-component'
 import RC from '@/components/renderComponent.vue'
 import TestMixin from '../mixins/test-mixin'
+{{#vuex}}
 import { Getter } from 'vuex-class'
+{{/vuex}}
 
 @Component({
   components: {
@@ -22,8 +26,9 @@ import { Getter } from 'vuex-class'
   mixins: [TestMixin]
 })
 export default class HelloWorld extends Vue {
+  {{#vuex}}
   @Getter info
-
+  {{/vuex}}
   msg: string = 'Welcome to Your Vue-Typescript App'
 
   mounted () {

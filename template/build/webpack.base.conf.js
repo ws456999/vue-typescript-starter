@@ -28,33 +28,14 @@ module.exports = {
   resolve: {
     extensions: ['.js', '.vue', '.json', '.ts', '.tsx'],
     alias: {
+      {{#if_eq build "standalone"}}
+      'vue$': 'vue/dist/vue.esm.js',
+      {{/if_eq}}
       '@': resolve('src'),
     }
   },
   module: {
     rules: [
-      // {
-      //   test: /\.(js|vue)$/,
-      //   loader: 'eslint-loader',
-      //   enforce: 'pre',
-      //   include: [resolve('src'), resolve('test')],
-      //   options: {
-      //     formatter: require('eslint-friendly-formatter')
-      //   }
-      // },
-      // {
-      //   test: /\.tsx?$/,
-      //   exclude: /node_modules/,
-      //   enforce: 'pre',
-      //   use: [
-      //     {
-      //         loader: 'tslint-loader',
-      //         options: {
-      //             configFile: 'tslint.json'
-      //         }
-      //     }
-      //   ]
-      // },
       {
         test: /\.vue$/,
         loader: 'vue-loader'
@@ -69,10 +50,11 @@ module.exports = {
           {
             loader: "ts-loader",
             options: { appendTsxSuffixTo: [/\.vue$/] }
-          },
+          }{{#lint}},
           {
             loader: 'tslint-loader'
           }
+          {{/lint}},
         ]
       },
       {
@@ -107,10 +89,6 @@ module.exports = {
     ]
   },
   plugins: [
-    // new ForkTsCheckerWebpackPlugin({
-    //   tslint: true,
-    //   vue: true
-    // }),
     new VueLoaderPlugin(),
     new webpack.ProvidePlugin({
       _: 'lodash'

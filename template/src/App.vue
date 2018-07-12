@@ -1,7 +1,11 @@
 <template>
   <div id="app">
     <img src="./assets/logo.png">
+    {{#router}}
     <router-view/>
+    {{else}}
+    <HelloWorld/>
+    {{/router}}
   </div>
 </template>
 
@@ -9,7 +13,17 @@
 import Vue from 'vue'
 import Component from 'vue-class-component'
 
-@Component({})
+{{#unless router}}
+import HelloWorld from './components/HelloWorld'
+{{/unless}}
+
+@Component({
+  {{#unless router}}
+  components: {
+    HelloWorld
+  }
+  {{/unless}}
+})
 export default class App extends Vue {
 }
 </script>
