@@ -13,15 +13,20 @@
 - vuex
 - typescript
 - jsx
-- ~~eslint~~
 - tslint
 - 单vue文件开发
+- vue-cli
+- ~~eslint~~
 
 ## 开始
 
 ``` bash
-# clone this repo
-git clone https://github.com/ws456999/vue-typescript-starter
+
+#  To create a new vue + typescript project, run:
+vue init ws456999/vue-typescript-starter#template `your project name`
+
+# then
+cd `your project name`
 
 # Install project dependencies
 npm install
@@ -35,6 +40,11 @@ npm run build
 ```
 
 ## change log
+
+*2018-07-12*
+- support vue-cli
+
+`vue init ws456999/vue-typescript-starter#template projectName`
 
 *2018-06-30*
 
