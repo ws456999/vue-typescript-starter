@@ -25,7 +25,7 @@ import { Getter } from 'vuex-class'
   },
   mixins: [TestMixin]
 })
-export default class HelloWorld extends Vue {
+export default class HelloWorld extends Vue<TestMixin> {
   {{#vuex}}
   @Getter info
   {{/vuex}}
@@ -33,6 +33,7 @@ export default class HelloWorld extends Vue {
 
   mounted () {
     console.log('这是 _.assign({})', _.assign({}))
+    console.log('from mixin', this.testMixinArg)
   }
 }
 </script>
