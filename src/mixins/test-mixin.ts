@@ -1,11 +1,11 @@
 import { Vue, Component } from 'vue-property-decorator'
 
-declare module 'vue/types/vue' {
-  interface Vue {
-    testMixinArg: string
-    testMixinFunc (): void
-  }
-}
+// declare module 'vue/types/vue' {
+//   interface Vue {
+//     testMixinArg: string
+//     testMixinFunc (): void
+//   }
+// }
 
 /**
  * Mixin test

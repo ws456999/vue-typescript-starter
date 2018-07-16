@@ -21,12 +21,13 @@ import { Getter } from 'vuex-class'
   },
   mixins: [TestMixin]
 })
-export default class HelloWorld extends Vue {
+export default class HelloWorld extends Vue<TestMixin> {
   @Getter info
 
   msg: string = 'Welcome to Your Vue-Typescript App'
 
   mounted () {
+    console.log(this.testMixinArg)
     console.log('这是 _.assign({})', _.assign({}))
   }
 }
